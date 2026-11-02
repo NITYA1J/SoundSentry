@@ -1,0 +1,638 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>FenceLine Customer Story Mockups</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: one long scroll in a fixed order (why nobody believed you, what it is, where it's from, is the data solid).
+   Each band is copy on the left and a working demo on the right; phones stack them. */
+:root {
+  --bg: #EDF1F4;
+  --surface: #F7F9FA;
+  --paper: #FFFFFF;
+  --ink: #13222E;
+  --ink-soft: #4A5C6C;
+  --line: #CAD5DD;
+  --hum: #BB3412;
+  --hum-ink: #FFFFFF;
+  --water: #2D6A8C;
+  --on-water: #FFFFFF;
+  --sea: #D3E3EC;
+  --tip: #FFFFFF;
+  --ok: #1F7A55;
+  --key-w: #FFFFFF;
+  --key-w-ink: #4A5C6C;
+  --key-b: #13222E;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1A24; --surface: #15242F; --paper: #1B2C38; --ink: #E7EEF3; --ink-soft: #A3B5C3;
+    --line: #2B3E4B; --hum: #FF8057; --hum-ink: #1A0F0A; --water: #34789E; --on-water: #FFFFFF;
+    --sea: #17323F; --tip: #DCEBF4; --ok: #4FC293; --key-w: #E9F0F5; --key-w-ink: #3B4D5C; --key-b: #05090D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1A24; --surface: #15242F; --paper: #1B2C38; --ink: #E7EEF3; --ink-soft: #A3B5C3;
+  --line: #2B3E4B; --hum: #FF8057; --hum-ink: #1A0F0A; --water: #34789E; --on-water: #FFFFFF;
+  --sea: #17323F; --tip: #DCEBF4; --ok: #4FC293; --key-w: #E9F0F5; --key-w-ink: #3B4D5C; --key-b: #05090D;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 var(--font-body);
+  padding-block: 0 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--hum); outline-offset: 2px; }
+
+.eyebrow { font: 500 12px/1.3 var(--font-mono); letter-spacing: .09em; text-transform: uppercase; color: var(--ink-soft); margin: 0; }
+h1, h2 { font-family: var(--font-display); font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.1rem, 5.6vw, 3.6rem); line-height: 1.04; max-width: 16ch; }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.08; margin-top: 10px; }
+p { margin: 0; }
+
+/* masthead */
+.masthead { padding-block: 44px 36px; display: grid; gap: 18px; }
+.lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 52ch; }
+.notice { display: inline-flex; gap: 10px; align-items: baseline; flex-wrap: wrap; border: 1px dashed var(--ink-soft); border-radius: 4px; padding: 8px 12px; font-size: .9rem; max-width: 66ch; background: var(--surface); }
+.notice b { font: 500 11px var(--font-mono); letter-spacing: .09em; text-transform: uppercase; background: var(--ink); color: var(--bg); padding: 2px 6px; border-radius: 3px; }
+.path { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; counter-reset: step; }
+.path a { display: block; border-top: 3px solid var(--ink); padding-top: 10px; color: var(--ink); text-decoration: none; font-weight: 600; line-height: 1.3; counter-increment: step; }
+.path a::before { content: "0" counter(step); display: block; font: 500 12px var(--font-mono); color: var(--hum); margin-bottom: 4px; }
+.path a:hover { border-top-color: var(--hum); }
+@media (max-width: 720px) { .path { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* story bands */
+.story { padding-block: 60px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px 56px; align-items: start; scroll-margin-top: 8px; }
+@media (max-width: 880px) { .story { grid-template-columns: minmax(0, 1fr); padding-block: 44px; } }
+.copy { display: grid; gap: 14px; align-content: start; }
+.copy p { color: var(--ink-soft); max-width: 46ch; }
+.stage { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: grid; gap: 16px; min-width: 0; }
+.small { font-size: .85rem; color: var(--ink-soft); }
+.mono { font-family: var(--font-mono); }
+
+.btn { min-height: 44px; padding: 8px 14px; background: transparent; border: 1px solid var(--ink); border-radius: 4px; cursor: pointer; font-weight: 500; font-size: .92rem; }
+.btn:hover, .btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.btn.primary { background: var(--hum); border-color: var(--hum); color: var(--hum-ink); }
+.btn.primary:hover, .btn.primary[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+/* 1 iceberg */
+#berg { width: 100%; height: auto; display: block; border-radius: 4px; }
+.controls { display: grid; gap: 10px; }
+.controls label { display: flex; justify-content: space-between; gap: 12px; font-weight: 600; font-size: .95rem; }
+.controls output { font-family: var(--font-mono); font-weight: 500; }
+input[type="range"] { width: 100%; accent-color: var(--hum); min-height: 32px; }
+.readout { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.readout div { border-top: 2px solid var(--ink); padding-top: 8px; }
+.readout dt { font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+.readout dd { margin: 2px 0 0; font: 700 clamp(1.4rem, 3.4vw, 1.9rem)/1.1 var(--font-display); font-variant-numeric: tabular-nums; }
+.verdict { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: .95rem; }
+.pill { font: 500 12px var(--font-mono); letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; border: 1px solid var(--ink); white-space: nowrap; }
+.pill.hot { background: var(--hum); border-color: var(--hum); color: var(--hum-ink); }
+
+/* 2 piano */
+.pull { font: 700 clamp(1.35rem, 3.2vw, 1.8rem)/1.15 var(--font-display); letter-spacing: -0.01em; text-wrap: balance; }
+.kb-wrap { position: relative; padding-top: 40px; }
+.callout { position: absolute; top: 0; left: 75%; transform: translateX(-50%); font: 500 12px var(--font-mono); background: var(--hum); color: var(--hum-ink); padding: 4px 8px; border-radius: 3px; white-space: nowrap; }
+.callout::after { content: ""; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--hum); }
+.keys { position: relative; display: flex; height: 190px; user-select: none; -webkit-user-select: none; }
+.kw { flex: 1 1 0; min-width: 0; background: var(--key-w); border: 1px solid var(--key-b); border-left-width: 0; border-radius: 0 0 5px 5px; display: flex; align-items: flex-end; justify-content: center; padding: 0 0 8px; font: 500 10px var(--font-mono); color: var(--key-w-ink); cursor: pointer; }
+.kw:first-child { border-left-width: 1px; }
+.kb { position: absolute; top: 0; width: 8%; height: 60%; background: var(--key-b); border: 1px solid var(--key-b); border-radius: 0 0 4px 4px; z-index: 2; cursor: pointer; display: flex; align-items: flex-end; justify-content: center; padding: 0 0 6px; font: 500 10px var(--font-mono); color: #fff; }
+.kw.down { background: var(--line); }
+.kb.down { background: var(--ink-soft); }
+.kb.hum { background: var(--hum); border-color: var(--hum); color: var(--hum-ink); box-shadow: 0 0 0 3px var(--surface), 0 0 22px var(--hum); animation: glow 2.4s ease-in-out infinite alternate; }
+@keyframes glow { from { box-shadow: 0 0 0 3px var(--surface), 0 0 8px var(--hum); } to { box-shadow: 0 0 0 3px var(--surface), 0 0 26px var(--hum); } }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.facts div { border-top: 2px solid var(--ink); padding-top: 8px; }
+.facts dt { font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+.facts dd { margin: 2px 0 0; font: 700 clamp(1.1rem, 2.6vw, 1.5rem)/1.15 var(--font-display); font-variant-numeric: tabular-nums; }
+.heat { display: grid; grid-template-rows: repeat(24, 6px); grid-auto-flow: column; grid-auto-columns: 1fr; gap: 1px; touch-action: pan-y; }
+.heat i { display: block; background: var(--hum); opacity: .85; }
+.heat i.off { background: var(--line); opacity: 1; }
+.heat i.sel { outline: 2px solid var(--ink); outline-offset: 1px; position: relative; z-index: 1; }
+
+/* 5 ripples */
+.map { position: relative; width: 100%; aspect-ratio: 8 / 5; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+@media (max-width: 560px) { .map { aspect-ratio: 1 / 1; } }
+.map svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.rip { fill: none; stroke: var(--hum); stroke-width: 2; vector-effect: non-scaling-stroke; transform-box: fill-box; transform-origin: center; animation: ripple 6s cubic-bezier(.25, .5, .4, 1) infinite; }
+@keyframes ripple { from { transform: scale(1); opacity: .75; } to { transform: scale(var(--rs, 10)); opacity: 0; } }
+.ring { fill: none; stroke: var(--ink-soft); stroke-width: 1; stroke-dasharray: 4 5; }
+.pin { position: absolute; width: 48px; height: 48px; transform: translate(-50%, -50%); border: 0; padding: 0; background: transparent; border-radius: 50%; cursor: grab; touch-action: none; display: grid; place-items: center; z-index: 3; }
+.pin:active { cursor: grabbing; }
+.pin .dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 600 13px var(--font-mono); background: var(--ink); color: var(--bg); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--ink); }
+.pin.a .dot { background: var(--hum); color: var(--hum-ink); box-shadow: 0 0 0 1px var(--hum); }
+.badge { position: absolute; transform: translateX(-50%); font: 500 12px var(--font-mono); padding: 4px 8px; background: var(--paper); border: 1px solid var(--ink); border-radius: 4px; white-space: nowrap; pointer-events: none; z-index: 2; }
+.ro { display: grid; gap: 12px; }
+.ro .lines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.ro .lines div { border-top: 2px solid var(--ink); padding-top: 8px; }
+.ro .big { font: 700 clamp(1.3rem, 3vw, 1.75rem)/1.1 var(--font-display); font-variant-numeric: tabular-nums; }
+.bars { display: grid; gap: 6px; }
+.bar { display: grid; grid-template-columns: 56px minmax(0, 1fr) 54px; gap: 10px; align-items: center; font: 500 12px var(--font-mono); }
+.bar .track { height: 12px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--hum); width: 100%; transition: width .2s; }
+.bar .val { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* 12 certificate */
+.seg { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+.receipt-wrap { max-width: 440px; width: 100%; margin: 0 auto; filter: drop-shadow(0 10px 14px rgba(19, 34, 46, .22)); }
+.receipt { background: var(--paper); color: var(--ink); font-family: var(--font-mono); padding: 26px 22px 46px; -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 18px 100%; mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 18px 100%; }
+.r-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.r-head .meta { font-size: 11px; line-height: 1.6; color: var(--ink-soft); letter-spacing: .04em; text-transform: uppercase; }
+.r-head .meta b { display: block; color: var(--ink); font-size: 13px; letter-spacing: .06em; }
+.seal { width: 88px; height: 88px; flex: none; color: var(--hum); transform: rotate(-9deg); }
+.r-headline { font: 600 clamp(1.05rem, 2.8vw, 1.25rem)/1.3 var(--font-display); margin: 18px 0 14px; text-wrap: balance; }
+.receipt details { border-top: 1px dashed var(--ink-soft); }
+.receipt details:last-of-type { border-bottom: 1px dashed var(--ink-soft); }
+.receipt summary { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; cursor: pointer; list-style: none; font-size: 13px; min-height: 40px; align-items: center; }
+.receipt summary::-webkit-details-marker { display: none; }
+.receipt .k { color: var(--ink-soft); }
+.receipt .k::before { content: "+ "; color: var(--hum); }
+.receipt details[open] .k::before { content: "\2212  "; }
+.receipt .v { font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+.receipt details p { font: 400 13px/1.5 var(--font-body); color: var(--ink-soft); padding: 0 0 12px; max-width: 38ch; }
+.r-foot { margin-top: 14px; font: 400 11px/1.5 var(--font-mono); color: var(--ink-soft); }
+
+/* footer */
+.foot { border-top: 1px solid var(--line); padding-top: 32px; display: grid; gap: 12px; }
+.foot ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--ink-soft); max-width: 70ch; }
+.foot li::marker { color: var(--hum); }
+
+@media (prefers-reduced-motion: reduce) {
+  .kb.hum { animation: none; }
+  .rip { animation: none; opacity: .35; }
+  .bar .fill { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">FenceLine · Customer data stories</p>
+    <h1>The hum is real. Here is the evidence.</h1>
+    <p class="lede">Four short stories built from one month of FenceLine readings. Each one answers the question a customer asks next.</p>
+    <p class="notice"><b>Sample data</b><span>Every number on this page is illustrative. None of it comes from a real site.</span></p>
+    <ol class="path" aria-label="The four stories in order">
+      <li><a href="#iceberg">Why nobody believed you</a></li>
+      <li><a href="#hum">What it is</a></li>
+      <li><a href="#ripples">Where it comes from</a></li>
+      <li><a href="#evidence">Is the data solid?</a></li>
+    </ol>
+  </header>
+
+  <!-- 1 ICEBERG -->
+  <section class="story" id="iceberg" aria-labelledby="h-iceberg">
+    <div class="copy">
+      <p class="eyebrow">Why nobody believed you</p>
+      <h2 id="h-iceberg">The inspector measured the tip</h2>
+      <p>A city sound meter uses A-weighting, a filter that removes most low-frequency sound. The reading comes out small and passes. FenceLine also records the C-weighted level, which keeps the low end.</p>
+      <p>Drag the slider. When the C-weighted level runs more than 20 dB above the A-weighted level, low-frequency sound is dominating what you live with.</p>
+    </div>
+    <div class="stage">
+      <svg id="berg" viewBox="0 0 560 380" role="img" aria-label="Iceberg diagram">
+        <rect x="0" y="118" width="560" height="262" fill="var(--sea)"></rect>
+        <line x1="0" y1="58" x2="560" y2="58" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="6 6"></line>
+        <text x="12" y="48" font-size="15" fill="var(--ink-soft)" font-family="IBM Plex Mono, ui-monospace, monospace">Example night limit: 45 dBA</text>
+        <polygon id="mass" fill="var(--water)" opacity=".92"></polygon>
+        <polygon id="tip" fill="var(--tip)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"></polygon>
+        <line x1="0" y1="118" x2="560" y2="118" stroke="var(--water)" stroke-width="2"></line>
+        <line id="lead" stroke="var(--ink)" stroke-width="1.5"></line>
+        <text id="tip-l1" x="372" y="78" font-size="18" font-weight="600" fill="var(--ink)" font-family="IBM Plex Sans, system-ui, sans-serif">Inspector's reading</text>
+        <text id="tip-l2" x="372" y="108" font-size="28" font-weight="600" fill="var(--ink)" font-family="IBM Plex Mono, ui-monospace, monospace">38 dBA</text>
+        <text id="mass-l1" text-anchor="middle" font-size="18" font-weight="600" fill="var(--on-water)" font-family="IBM Plex Sans, system-ui, sans-serif">What you're living with</text>
+        <text id="mass-l2" text-anchor="middle" font-size="30" font-weight="600" fill="var(--on-water)" font-family="IBM Plex Mono, ui-monospace, monospace">61 dBC</text>
+      </svg>
+      <div class="controls">
+        <label for="c-slider"><span>C-weighted level at this site</span><output id="c-out" for="c-slider">61 dBC</output></label>
+        <input type="range" id="c-slider" min="40" max="72" step="1" value="61">
+        <div class="row">
+          <button class="btn" type="button" id="p-street" aria-pressed="false">Typical street · gap 5 dB</button>
+          <button class="btn" type="button" id="p-site" aria-pressed="true">This site · gap 23 dB</button>
+        </div>
+      </div>
+      <dl class="readout">
+        <div><dt>Inspector, dBA</dt><dd id="ro-a">38</dd></div>
+        <div><dt>Your site, dBC</dt><dd id="ro-c">61</dd></div>
+        <div><dt>Gap</dt><dd id="ro-gap">23 dB</dd></div>
+      </dl>
+      <p class="verdict" id="verdict" aria-live="polite"></p>
+      <p class="small">The 45 dBA line is an example. Your local limit may differ. The 20 dB gap is a rule of thumb.</p>
+    </div>
+  </section>
+
+  <!-- 2 HUM -->
+  <section class="story" id="hum" aria-labelledby="h-hum">
+    <div class="copy">
+      <p class="eyebrow">What it is</p>
+      <h2 id="h-hum">Your hum has a name</h2>
+      <p>A number like 117 Hz means little to most people. A note is something you can hum back, describe to a neighbor, and bring to a council meeting.</p>
+      <p>Press the button to hear the measured tone. Tap other keys to compare it with nearby notes.</p>
+    </div>
+    <div class="stage">
+      <p class="pull">It's a B♭. It played 97% of hours this month.</p>
+      <div class="kb-wrap">
+        <div class="callout">117 Hz · your hum</div>
+        <div class="keys" id="keys" role="group" aria-label="Piano keys from C2 to C3"></div>
+      </div>
+      <div class="row">
+        <button class="btn primary" type="button" id="hum-btn" aria-pressed="false">Play your hum</button>
+        <span class="small" id="hum-status" role="status"></span>
+      </div>
+      <p class="small">This is a synthesized tone at the measured frequency. Nothing is recorded or transmitted. Laptop and phone speakers reproduce 117 Hz weakly, so headphones help.</p>
+      <dl class="facts">
+        <div><dt>Measured tone</dt><dd>117 Hz</dd></div>
+        <div><dt>Nearest note</dt><dd>B♭2, 7 cents sharp</dd></div>
+        <div><dt>Hours present</dt><dd>722 of 744</dd></div>
+      </dl>
+      <div>
+        <div class="heat" id="heat" role="img" aria-label="Grid of every hour in October. Most hours show the B-flat hum."></div>
+        <p class="small mono" id="heat-ro" style="margin-top:8px">October, sample data. Each column is a day, each row an hour, midnight at the top. Hover or tap a square.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 RIPPLES -->
+  <section class="story" id="ripples" aria-labelledby="h-ripples">
+    <div class="copy">
+      <p class="eyebrow">Where it comes from</p>
+      <h2 id="h-ripples">Ripples from the source</h2>
+      <p>Both nodes hear the same B♭. The node nearer the data center hears it louder. A level that drops with distance from one place shows where a sound comes from.</p>
+      <p>Drag the pins to move the nodes. Decibels are logarithmic, and every 3 dB is about double the sound energy.</p>
+    </div>
+    <div class="stage">
+      <div class="map" id="map">
+        <svg id="mapsvg" aria-hidden="true"></svg>
+        <button class="pin a" type="button" id="pin-a" aria-label="Node A, drag or use arrow keys"><span class="dot">A</span></button>
+        <button class="pin b" type="button" id="pin-b" aria-label="Node B, drag or use arrow keys"><span class="dot">B</span></button>
+        <div class="badge" id="badge-a"></div>
+        <div class="badge" id="badge-b"></div>
+      </div>
+      <div class="ro" aria-live="polite">
+        <div class="lines">
+          <div><p class="small mono">Node A</p><p class="big" id="ro-la">66 dBC</p></div>
+          <div><p class="small mono">Node B</p><p class="big" id="ro-lb">58 dBC</p></div>
+        </div>
+        <p id="ro-diff" style="font-weight:600"></p>
+        <div class="bars" aria-hidden="true">
+          <div class="bar"><span>Node A</span><span class="track"><span class="fill" id="bar-a"></span></span><span class="val" id="val-a"></span></div>
+          <div class="bar"><span>Node B</span><span class="track"><span class="fill" id="bar-b"></span></span><span class="val" id="val-b"></span></div>
+        </div>
+        <p class="small" id="ro-note"></p>
+      </div>
+      <div class="row">
+        <button class="btn" type="button" id="map-reset">Reset pins</button>
+        <span class="small">Dashed rings mark 100 m and 250 m. Levels are estimated at about 6 dB lower per doubling of distance in open ground. Real sites vary.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 EVIDENCE -->
+  <section class="story" id="evidence" aria-labelledby="h-evidence">
+    <div class="copy">
+      <p class="eyebrow">Is the data solid?</p>
+      <h2 id="h-evidence">Certificate of Evidence</h2>
+      <p>Anyone can attack a measurement. This record answers first: how long we listened, how much of it counts, and what we threw out.</p>
+      <p>Tap a line to see what it means. Switch months to compare.</p>
+    </div>
+    <div class="stage">
+      <div class="seg" role="group" aria-label="Month">
+        <button class="btn" type="button" data-m="0" aria-pressed="false">Aug 2026</button>
+        <button class="btn" type="button" data-m="1" aria-pressed="false">Sep 2026</button>
+        <button class="btn" type="button" data-m="2" aria-pressed="true">Oct 2026</button>
+      </div>
+      <div class="receipt-wrap"><div class="receipt" id="receipt"></div></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="eyebrow">Before customer use</p>
+    <ul>
+      <li>Verify thresholds against sources: the WHO night guideline, the 20 dB LCeq minus LAeq rule of thumb, and vibration perception levels.</li>
+      <li>Ripples need one node deliberately near the data center and one far or reference node.</li>
+      <li>The B♭ tone is synthesized in the browser. It is not a recording.</li>
+      <li>All figures on this page are sample data and should be replaced with packet metrics.</li>
+    </ul>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 1. Iceberg ---------- */
+  var A = 38, CX = 270, WL = 118;
+  var slider = $('#c-slider'), mass = $('#mass'), tip = $('#tip');
+  var tipN = [[-70,0],[-48,.45],[-30,.58],[-8,1],[14,.72],[34,.82],[54,.34],[72,0]];
+  var massN = [[-72,0],[-150,.12],[-205,.34],[-150,.6],[-70,.84],[-6,1],[64,.82],[140,.62],[200,.34],[148,.12],[72,0]];
+  var curC = 61, tween = null;
+
+  function drawBerg(c) {
+    var hTip = (A - 20) * 2.4, dMass = (c - 20) * 4.1;
+    tip.setAttribute('points', tipN.map(function (p) { return (CX + p[0]) + ',' + (WL - p[1] * hTip); }).join(' '));
+    mass.setAttribute('points', massN.map(function (p) { return (CX + p[0]) + ',' + (WL + p[1] * dMass); }).join(' '));
+    var lead = $('#lead');
+    lead.setAttribute('x1', CX + 2); lead.setAttribute('y1', WL - hTip + 2);
+    lead.setAttribute('x2', 364); lead.setAttribute('y2', 88);
+    var y1 = WL + dMass * 0.4 - 4;
+    var l1 = $('#mass-l1'), l2 = $('#mass-l2');
+    l1.setAttribute('x', CX); l1.setAttribute('y', y1);
+    l2.setAttribute('x', CX); l2.setAttribute('y', y1 + 32);
+    l2.textContent = Math.round(c) + ' dBC';
+  }
+  function readout(c) {
+    c = Math.round(c);
+    var gap = c - A;
+    $('#c-out').textContent = c + ' dBC';
+    $('#ro-c').textContent = c;
+    $('#ro-gap').textContent = gap + ' dB';
+    var v = $('#verdict');
+    if (gap > 20) {
+      v.innerHTML = '<span class="pill hot">Low-frequency dominant</span><span>A meter set to dBA reads this as quiet.</span>';
+    } else {
+      v.innerHTML = '<span class="pill">Below the 20 dB rule of thumb</span><span>The sound is not clearly low-frequency dominant.</span>';
+    }
+    $('#berg').setAttribute('aria-label', 'Iceberg diagram. The inspector reads ' + A + ' dBA. The C-weighted level is ' + c + ' dBC, a gap of ' + gap + ' dB.');
+    slider.setAttribute('aria-valuetext', c + ' dBC, gap of ' + gap + ' dB');
+    $('#p-street').setAttribute('aria-pressed', String(c === 43));
+    $('#p-site').setAttribute('aria-pressed', String(c === 61));
+  }
+  function renderBerg(c) { curC = c; drawBerg(c); readout(c); }
+  function goTo(target) {
+    if (tween) cancelAnimationFrame(tween);
+    if (reduce) { slider.value = target; renderBerg(target); return; }
+    var from = curC, t0 = performance.now(), dur = 450;
+    (function step(now) {
+      var k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      var c = from + (target - from) * e;
+      slider.value = Math.round(c);
+      renderBerg(c);
+      if (k < 1) tween = requestAnimationFrame(step);
+    })(t0);
+  }
+  slider.addEventListener('input', function () {
+    if (tween) cancelAnimationFrame(tween);
+    renderBerg(+slider.value);
+  });
+  $('#p-street').addEventListener('click', function () { goTo(43); });
+  $('#p-site').addEventListener('click', function () { goTo(61); });
+  renderBerg(61);
+
+  /* ---------- 2. Hum ---------- */
+  var WHITE = [['C2',65.41],['D2',73.42],['E2',82.41],['F2',87.31],['G2',98.00],['A2',110.00],['B2',123.47],['C3',130.81]];
+  var BLACK = [['C♯2',69.30,1,'C sharp 2'],['D♯2',77.78,2,'D sharp 2'],['F♯2',92.50,4,'F sharp 2'],['G♯2',103.83,5,'G sharp 2'],['B♭2',116.54,6,'B flat 2']];
+  var keys = $('#keys');
+  var html = '';
+  WHITE.forEach(function (w) {
+    html += '<button type="button" class="kw" data-f="' + w[1] + '" aria-label="' + w[0] + ', ' + Math.round(w[1]) + ' hertz"><span>' + w[0] + '</span></button>';
+  });
+  BLACK.forEach(function (b) {
+    var isHum = b[0] === 'B♭2';
+    html += '<button type="button" class="kb' + (isHum ? ' hum' : '') + '" data-f="' + b[1] + '" style="left:calc(' + (b[2] * 12.5) + '% - 4%)" aria-label="' + b[3] + ', ' + b[1].toFixed(1) + ' hertz' + (isHum ? ', the note of your hum' : '') + '">' + (isHum ? '<span>B♭</span>' : '') + '</button>';
+  });
+  keys.innerHTML = html;
+
+  var ctx = null, hum = null, humTimer = null;
+  function ac() {
+    var Ctor = window.AudioContext || window.webkitAudioContext;
+    if (!Ctor) return null;
+    if (!ctx) ctx = new Ctor();
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+  function tone(freq, dur) {
+    var a = ac(); if (!a) return null;
+    var o = a.createOscillator(), g = a.createGain(), t = a.currentTime;
+    o.type = 'sine'; o.frequency.value = freq;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(0.18, t + 0.04);
+    if (dur) { g.gain.setValueAtTime(0.18, t + dur - 0.15); g.gain.linearRampToValueAtTime(0, t + dur); }
+    o.connect(g); g.connect(a.destination);
+    o.start(t);
+    if (dur) o.stop(t + dur + 0.03);
+    return { o: o, g: g };
+  }
+  var humBtn = $('#hum-btn'), humStatus = $('#hum-status');
+  function stopHum() {
+    if (humTimer) { clearTimeout(humTimer); humTimer = null; }
+    if (hum && ctx) {
+      var t = ctx.currentTime;
+      try {
+        hum.g.gain.cancelScheduledValues(t);
+        hum.g.gain.setValueAtTime(hum.g.gain.value, t);
+        hum.g.gain.linearRampToValueAtTime(0, t + 0.12);
+        hum.o.stop(t + 0.15);
+      } catch (e) {}
+    }
+    hum = null;
+    humBtn.setAttribute('aria-pressed', 'false');
+    humBtn.textContent = 'Play your hum';
+    humStatus.textContent = '';
+  }
+  humBtn.addEventListener('click', function () {
+    if (hum) { stopHum(); return; }
+    hum = tone(117, 0);
+    if (!hum) { humStatus.textContent = 'Audio is not available in this browser.'; return; }
+    humBtn.setAttribute('aria-pressed', 'true');
+    humBtn.textContent = 'Stop';
+    humStatus.textContent = 'Playing a synthesized 117 Hz tone';
+    humTimer = setTimeout(stopHum, 12000);
+  });
+  keys.addEventListener('click', function (e) {
+    var k = e.target.closest('button[data-f]');
+    if (!k) return;
+    stopHum();
+    var t = tone(parseFloat(k.dataset.f), 1.2);
+    if (!t) humStatus.textContent = 'Audio is not available in this browser.';
+    k.classList.add('down');
+    setTimeout(function () { k.classList.remove('down'); }, 260);
+  });
+
+  /* October heat grid: 31 days x 24 hours, 22 hours without the hum */
+  var off = new Set();
+  for (var h = 8; h < 14; h++) off.add(8 * 24 + h);
+  var seed = 7;
+  function rnd() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+  while (off.size < 22) off.add(Math.floor(rnd() * 744));
+  var heat = $('#heat'), cells = '';
+  for (var i = 0; i < 744; i++) cells += '<i data-i="' + i + '"' + (off.has(i) ? ' class="off"' : '') + '></i>';
+  heat.innerHTML = cells;
+  var heatRo = $('#heat-ro'), selCell = null;
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function showCell(e) {
+    var c = e.target.closest ? e.target.closest('i') : null;
+    if (!c) return;
+    var idx = +c.dataset.i, d = Math.floor(idx / 24) + 1, hr = idx % 24;
+    if (selCell) selCell.classList.remove('sel');
+    selCell = c; c.classList.add('sel');
+    heatRo.textContent = 'Oct ' + d + ' · ' + pad(hr) + ':00 · ' + (off.has(idx) ? 'no B♭ detected' : 'B♭ present');
+  }
+  heat.addEventListener('pointermove', showCell);
+  heat.addEventListener('click', showCell);
+
+  /* ---------- 5. Ripples ---------- */
+  var EXT = 520, DCX_M = 80;
+  var mapEl = $('#map'), msvg = $('#mapsvg');
+  var pinEl = { a: $('#pin-a'), b: $('#pin-b') };
+  var badge = { a: $('#badge-a'), b: $('#badge-b') };
+  function polar(d, deg) { var r = deg * Math.PI / 180; return { dx: d * Math.cos(r), dy: d * Math.sin(r) }; }
+  var DEF = { a: polar(100, -20), b: polar(100 * Math.pow(10, 8 / 20), 14) };
+  var nodes = { a: { dx: DEF.a.dx, dy: DEF.a.dy }, b: { dx: DEF.b.dx, dy: DEF.b.dy } };
+  var W = 0, H = 0, pxm = 1, dcx = 0, dcy = 0;
+
+  function level(n) { var d = Math.hypot(n.dx, n.dy); return 66 - 20 * Math.log10(d / 100); }
+
+  function layout() {
+    var r = mapEl.getBoundingClientRect();
+    if (!r.width) return;
+    W = r.width; H = r.height; pxm = W / EXT; dcx = DCX_M * pxm; dcy = H / 2;
+    var reach = Math.hypot(Math.max(dcx, W - dcx), H / 2);
+    var s = '';
+    var cols = [0.68, 0.76, 0.84, 0.92], rows = [0.16, 0.5, 0.84];
+    rows.forEach(function (ry) { cols.forEach(function (cx) {
+      s += '<rect x="' + (cx * W - 8) + '" y="' + (ry * H - 6) + '" width="16" height="12" rx="2" fill="var(--line)"></rect>';
+    }); });
+    [100, 250].forEach(function (m) {
+      s += '<circle class="ring" cx="' + dcx + '" cy="' + dcy + '" r="' + (m * pxm) + '"></circle>';
+      s += '<text x="' + (dcx + m * pxm + 5) + '" y="' + (dcy + 18) + '" font-size="11" fill="var(--ink-soft)" font-family="IBM Plex Mono, ui-monospace, monospace">' + m + ' m</text>';
+    });
+    if (reduce) {
+      [0.25, 0.5, 0.75].forEach(function (f) {
+        s += '<circle class="rip" cx="' + dcx + '" cy="' + dcy + '" r="' + (reach * f) + '"></circle>';
+      });
+    } else {
+      [0, -2, -4].forEach(function (dl) {
+        s += '<circle class="rip" cx="' + dcx + '" cy="' + dcy + '" r="30" style="animation-delay:' + dl + 's"></circle>';
+      });
+    }
+    s += '<rect x="' + (dcx - 30) + '" y="' + (dcy - 22) + '" width="60" height="44" rx="3" fill="var(--ink)"></rect>';
+    [-16, 0, 16].forEach(function (o) { s += '<circle cx="' + (dcx + o) + '" cy="' + (dcy - 4) + '" r="5" fill="var(--bg)"></circle>'; });
+    s += '<text x="' + dcx + '" y="' + (dcy + 40) + '" text-anchor="middle" font-size="12" font-weight="600" fill="var(--ink)" font-family="IBM Plex Sans, system-ui, sans-serif">Data center</text>';
+    msvg.style.setProperty('--rs', (reach / 30).toFixed(2));
+    msvg.innerHTML = s;
+    update();
+  }
+
+  function fmt(n) { return n >= 10 ? n.toFixed(0) : n.toFixed(1); }
+
+  function update() {
+    if (!W) return;
+    var la = Math.round(level(nodes.a)), lb = Math.round(level(nodes.b));
+    ['a', 'b'].forEach(function (k) {
+      var x = dcx + nodes[k].dx * pxm, y = dcy + nodes[k].dy * pxm;
+      pinEl[k].style.left = x + 'px'; pinEl[k].style.top = y + 'px';
+      var bd = badge[k];
+      bd.textContent = 'B♭ detected · ' + (k === 'a' ? la : lb) + ' dBC';
+      var bw = bd.offsetWidth, bh = bd.offsetHeight;
+      var bx = Math.max(bw / 2 + 4, Math.min(W - bw / 2 - 4, x));
+      var by = k === 'a' ? y - 22 - bh - 4 : y + 22 + 4;
+      by = Math.max(4, Math.min(H - bh - 4, by));
+      bd.style.left = bx + 'px'; bd.style.top = by + 'px';
+    });
+    $('#ro-la').textContent = la + ' dBC';
+    $('#ro-lb').textContent = lb + ' dBC';
+    var diff = Math.abs(la - lb), ratio = Math.pow(10, diff / 10);
+    var hi = la >= lb ? 'A' : 'B';
+    if (diff === 0) {
+      $('#ro-diff').textContent = 'Same level at both nodes: no difference in sound energy.';
+      $('#ro-note').textContent = 'Both nodes are about the same distance away. Move one closer to the data center to compare.';
+    } else {
+      $('#ro-diff').textContent = 'Node ' + hi + ' reads ' + diff + ' dB higher, about ' + fmt(ratio) + '× the sound energy.';
+      $('#ro-note').textContent = 'Node ' + hi + ' sits closer to the data center and hears the same B♭ louder. A drop with distance like this points to the data center.';
+    }
+    var ea = la >= lb ? 100 : 100 / ratio, eb = lb >= la ? 100 : 100 / ratio;
+    $('#bar-a').style.width = ea + '%'; $('#bar-b').style.width = eb + '%';
+    $('#val-a').textContent = la >= lb ? fmt(ratio) + '×' : '1×';
+    $('#val-b').textContent = lb >= la ? fmt(ratio) + '×' : '1×';
+  }
+
+  function setPos(k, px, py) {
+    px = Math.max(20, Math.min(W - 20, px)); py = Math.max(20, Math.min(H - 20, py));
+    var dx = (px - dcx) / pxm, dy = (py - dcy) / pxm, d = Math.hypot(dx, dy);
+    if (d < 35) { var f = 35 / (d || 1); dx = d ? dx * f : 35; dy = d ? dy * f : 0; }
+    nodes[k] = { dx: dx, dy: dy };
+    update();
+  }
+  ['a', 'b'].forEach(function (k) {
+    var p = pinEl[k], dragging = false;
+    p.addEventListener('pointerdown', function (e) { dragging = true; p.setPointerCapture(e.pointerId); e.preventDefault(); p.focus(); });
+    p.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var r = mapEl.getBoundingClientRect();
+      setPos(k, e.clientX - r.left, e.clientY - r.top);
+    });
+    var end = function () { dragging = false; };
+    p.addEventListener('pointerup', end); p.addEventListener('pointercancel', end);
+    p.addEventListener('keydown', function (e) {
+      var step = e.shiftKey ? 32 : 8, mx = 0, my = 0;
+      if (e.key === 'ArrowLeft') mx = -step; else if (e.key === 'ArrowRight') mx = step;
+      else if (e.key === 'ArrowUp') my = -step; else if (e.key === 'ArrowDown') my = step; else return;
+      e.preventDefault();
+      setPos(k, dcx + nodes[k].dx * pxm + mx, dcy + nodes[k].dy * pxm + my);
+    });
+  });
+  $('#map-reset').addEventListener('click', function () {
+    nodes = { a: { dx: DEF.a.dx, dy: DEF.a.dy }, b: { dx: DEF.b.dx, dy: DEF.b.dy } };
+    update();
+  });
+  if (window.ResizeObserver) new ResizeObserver(layout).observe(mapEl);
+  else window.addEventListener('resize', layout);
+  layout();
+
+  /* ---------- 12. Certificate ---------- */
+  var MONTHS = [
+    { label: 'August 2026', short: '08', days: 31, wind: 331, maint: 71, maintN: 2, clipN: 0, clipMin: 0, issued: 'Sep 1, 2026' },
+    { label: 'September 2026', short: '09', days: 30, wind: 399, maint: 116, maintN: 2, clipN: 1, clipMin: 3, issued: 'Oct 1, 2026' },
+    { label: 'October 2026', short: '10', days: 31, wind: 118, maint: 62, maintN: 1, clipN: 0, clipMin: 0, issued: 'Nov 1, 2026' }
+  ];
+  var SEAL = '<svg class="seal" viewBox="0 0 100 100" aria-hidden="true">' +
+    '<defs><path id="sealpath" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0"></path></defs>' +
+    '<circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="2"></circle>' +
+    '<circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="1"></circle>' +
+    '<text font-size="8" font-family="IBM Plex Mono, monospace" font-weight="500" fill="currentColor"><textPath href="#sealpath" textLength="215" lengthAdjust="spacing">FENCELINE · RECORD OF EVIDENCE · </textPath></text>' +
+    '<g fill="currentColor"><polygon points="33,64 33,49 36.5,44 40,49 40,64"></polygon><polygon points="46.5,64 46.5,49 50,44 53.5,49 53.5,64"></polygon><polygon points="60,64 60,49 63.5,44 67,49 67,64"></polygon></g>' +
+    '<line x1="30" y1="54" x2="70" y2="54" stroke="currentColor" stroke-width="2"></line></svg>';
+
+  function renderCert(i) {
+    var m = MONTHS[i], hours = m.days * 24, mins = hours * 60;
+    var excl = m.wind + m.maint + m.clipMin;
+    var pct = ((mins - excl) / mins * 100).toFixed(1);
+    var rows = [
+      ['Hours monitored', hours + ' hrs', 'Calendar hours in the period. The node listened the whole time.', false],
+      ['Valid data', pct + '%', 'Share of the period with usable readings after the excluded minutes below are removed. ' + excl + ' minutes were excluded this month.', true],
+      ['Tamper events', '0', 'Times the enclosure was opened or the node was moved. Each one would be logged and flagged on this record.', false],
+      ['Wind minutes excluded', m.wind + ' min', 'Strong wind on a microphone sounds like low-frequency noise. Those minutes are removed so wind cannot inflate the result.', false],
+      ['Maintenance excluded', m.maint + ' min · ' + m.maintN + (m.maintN === 1 ? ' window' : ' windows'), 'Minutes when someone was servicing the node. They are excluded so nobody can say FenceLine measured its own visit.', false],
+      ['Clipping events', String(m.clipN) + (m.clipN ? ' · ' + m.clipMin + ' min' : ''), 'Moments the signal was too loud for the sensor to record cleanly. They are excluded and counted.', false],
+      ['Clock-skew checks', m.days + ' of ' + m.days + ' passed', 'A daily check that the node clock matches a reference clock, so event times line up with real life.', false],
+      ['Node uptime', '100%', 'Share of the period the node was powered and reporting.', false]
+    ];
+    var html = '<div class="r-head"><div class="meta"><b>Certificate of Evidence</b>Sample site · Node A<br>' + m.label + '<br>Record FL-2026-' + m.short + '-0001<br>Issued ' + m.issued + '</div>' + SEAL + '</div>';
+    html += '<p class="r-headline">Monitored ' + hours + ' hrs · ' + pct + '% valid · 0 tamper events · wind minutes excluded</p>';
+    rows.forEach(function (r) {
+      html += '<details' + (r[3] ? ' open' : '') + '><summary><span class="k">' + r[0] + '</span><span class="v">' + r[1] + '</span></summary><p>' + r[2] + '</p></details>';
+    });
+    html += '<p class="r-foot">Issued by FenceLine from node logs. This is a record of method and data quality. It is not a regulatory certification.</p>';
+    $('#receipt').innerHTML = html;
+    document.querySelectorAll('[data-m]').forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.m === i)); });
+  }
+  document.querySelectorAll('[data-m]').forEach(function (b) {
+    b.addEventListener('click', function () { renderCert(+b.dataset.m); });
+  });
+  renderCert(2);
+})();
+</script>
+
+</body></html>
