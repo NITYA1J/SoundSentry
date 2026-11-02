@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>FenceLine Customer Story Mockups</title>
+<title>Sound Sentry Customer Story Mockups</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -614,7 +614,7 @@ input[type="range"] { width: 100%; accent-color: var(--hum); min-height: 32px; }
       ['Valid data', pct + '%', 'Share of the period with usable readings after the excluded minutes below are removed. ' + excl + ' minutes were excluded this month.', true],
       ['Tamper events', '0', 'Times the enclosure was opened or the node was moved. Each one would be logged and flagged on this record.', false],
       ['Wind minutes excluded', m.wind + ' min', 'Strong wind on a microphone sounds like low-frequency noise. Those minutes are removed so wind cannot inflate the result.', false],
-      ['Maintenance excluded', m.maint + ' min · ' + m.maintN + (m.maintN === 1 ? ' window' : ' windows'), 'Minutes when someone was servicing the node. They are excluded so nobody can say FenceLine measured its own visit.', false],
+      ['Maintenance excluded', m.maint + ' min · ' + m.maintN + (m.maintN === 1 ? ' window' : ' windows'), 'Minutes when someone was servicing the node. They are excluded so nobody can say Sound Sentry measured its own visit.', false],
       ['Clipping events', String(m.clipN) + (m.clipN ? ' · ' + m.clipMin + ' min' : ''), 'Moments the signal was too loud for the sensor to record cleanly. They are excluded and counted.', false],
       ['Clock-skew checks', m.days + ' of ' + m.days + ' passed', 'A daily check that the node clock matches a reference clock, so event times line up with real life.', false],
       ['Node uptime', '100%', 'Share of the period the node was powered and reporting.', false]
@@ -624,7 +624,7 @@ input[type="range"] { width: 100%; accent-color: var(--hum); min-height: 32px; }
     rows.forEach(function (r) {
       html += '<details' + (r[3] ? ' open' : '') + '><summary><span class="k">' + r[0] + '</span><span class="v">' + r[1] + '</span></summary><p>' + r[2] + '</p></details>';
     });
-    html += '<p class="r-foot">Issued by FenceLine from node logs. This is a record of method and data quality. It is not a regulatory certification.</p>';
+    html += '<p class="r-foot">Issued by SOUND SENTRY from node logs. This is a record of method and data quality. It is not a regulatory certification.</p>';
     $('#receipt').innerHTML = html;
     document.querySelectorAll('[data-m]').forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.m === i)); });
   }
